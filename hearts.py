@@ -4,7 +4,8 @@ import math
 t = turtle.Turtle()
 t.speed(0)
 t.color("red")
-turtle.bgcolor("black")
+#background color goes here
+turtle.bgcolor("green")
 
 def corazon(n):
     """Generates x, y coordinates for a heart shape"""
