@@ -5,7 +5,8 @@ t = turtle.Turtle()
 t.speed(0)
 t.color("red")
 #background color goes here
-turtle.bgcolor("green")
+# color can change
+turtle.bgcolor("black")
 
 def corazon(n):
     """Generates x, y coordinates for a heart shape"""
