@@ -1,34 +1,38 @@
 import turtle
 import math
+import numpy as np
 
+# Setup Turtle
 t = turtle.Turtle()
 t.speed(0)
 t.color("red")
-#background color goes here
-# color can change
 turtle.bgcolor("black")
 
-def corazon(n):
-    """Generates x, y coordinates for a heart shape"""
+def heart_curve(n):
+    """Generates x, y coordinates for a heart shape based on parametric equations."""
     x = 16 * math.sin(n) ** 3
-    y = 13 * math.cos(n) - 5 * math.cos(2*n) - 2*math.cos(3*n) - math.cos(4*n)
+    y = 13 * math.cos(n) - 5 * math.cos(2 * n) - 2 * math.cos(3 * n) - math.cos(4 * n)
     return x, y
 
-# Move to starting position
+def draw_heart(scale_factor):
+    """Draws a single heart shape scaled by scale_factor."""
+    t.penup()
+    for n in np.linspace(0, 2 * math.pi, 300):  # Smooth heart shape
+        x, y = heart_curve(n)
+        t.goto(x * scale_factor, y * scale_factor)
+        t.pendown()
+
+def layered_hearts(layers=15, scale_step=2):
+    """Draws multiple scaled hearts for a layered effect."""
+    for i in range(1, layers + 1):
+        draw_heart(i * scale_step)
+
+# Move to starting position and draw layered hearts
 t.penup()
 t.goto(0, 0)
 t.pendown()
 
-# Draw multiple hearts for a layered effect
-for i in range(1, 15):  # Increasing effect with scale
-    scale = i * 2  # Scale factor to grow the heart
-    t.penup()
-    
-    for n in range(0, 628, 2):  # Looping from 0 to 2π (~6.28 radians)
-        angle = n / 100  # Convert to radians
-        x, y = corazon(angle)
-        t.goto(x * scale, y * scale)
-        t.pendown()
+layered_hearts()
 
 t.hideturtle()
 turtle.done()
