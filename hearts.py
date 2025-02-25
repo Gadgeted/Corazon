@@ -3,6 +3,8 @@ import math
 import numpy as np
 
 # Setup Turtle
+# Setup Turtle
+# Setup Turtle
 t = turtle.Turtle()
 t.speed(0)
 t.color("red")
@@ -36,4 +38,3 @@ layered_hearts()
 
 t.hideturtle()
 turtle.done()
-well, just heck this out tbh
