@@ -5,6 +5,7 @@ import numpy as np
 # Setup Turtle
 # Setup Turtle
 # Setup Turtle
+# Setup Turtle 
 t = turtle.Turtle()
 t.speed(0)
 t.color("red")
